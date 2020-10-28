@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>演示：紫色背景简洁登陆页面</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<style>
+	#comImg{
+		margin-top: 200px;
+		float: right;
+	}
+
+	#loginForm{
+		margin-top: 250px;
+		margin-left: 200px;
+	}
+	#loginForm input{
+		width: 300px;
+		height: 50px;
+		margin-top: 10px;
+		border-radius: 100px;
+	}
+	#loginForm button{
+		width: 300px;
+		height: 50px;
+		margin-top: 50px;
+		border-radius: 100px;
+	}
+	#forgotPAS{
+		color: darkgrey;
+		margin-left: 120px;
+		margin-top: 20px;
+
+	}
+	#forgotPAS-a{
+		color: darkslateblue;
+	}
+	#noAccount{
+		margin-left: 90px;
+		margin-top: 250px;
+		color: darkblue;
+	}
+	#noAccount a{
+		color: darkslateblue;
+	}
+</style>
+<body style="height: 100%">
+
+<div>
+	<div class="col-xs-12" style="background-color: #6BC095;">
+		<div class="col-xs-6" style="height: 100%;min-width: 700px;max-width: 700px" align="center">
+			<img src="images/img-01.png" alt="IMG" id="comImg" >
+		</div>
+		<div class="col-xs-6" style="position:fixed;height:84.7%;width: 100%;margin-left: 500px;">
+			<div id="loginForm">
+
+			<div >
+				<input class="form-control" type="text" id="username" placeholder="账号" required="required">
+			</div>
+			<div >
+				<input class="form-control" type="password" id="password" placeholder="密码" required="required">
+			</div>
+			<div >
+				<button class="btn btn-success" onclick="login()">
+					登陆
+				</button>
+			</div>
+
+			<div id="forgotPAS">
+				<a id="forgotPAS-a">
+					忘记密码？
+				</a>
+			</div>
+			<div id="noAccount">
+				<a >
+					还没有账号？立即注册 ➡
+				</a>
+			</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	function login() {
+		var username = $("#username").val();
+		var password = $("#password").val();
+		if(username == "" || password == ""){
+			alert("账号或密码不能为空");
+		}else {
+			$.ajax({
+				url:"user/login",
+				dataType:"text",
+				type:"post",
+				data:{"username":username,"password":password},
+				success:function(data){
+					if(data.trim() == "1"){
+						window.location.href = "index";
+					}else {
+						alert("用户名或密码错误");
+					}
+				},
+				error:function(){
+					alert("链接后台服务器失败");
+				}
+			});
+		}
+
+	}
+</script>
+</body>
+</html>

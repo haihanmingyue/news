@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 为这个mapper指定一个唯一的namespace，它习惯上设置为：“包名+sql映射文件名”，这样可以保值名的唯一，一般来说，名字和Dao层的数据库方法的接口名一致。-->
+<mapper namespace="dao.UserDao">
+
+<!--     id：这个select语句的id，和接口内的方法名一致-->
+<!--<select id="allUser" parameterType="string" resultType="model.User">-->
+<!--    select * from `user` where CONCAT(`user`.id,`user`.account,`user`.auth) like "%"#{key,jdbcType=VARCHAR}"%"-->
+<!--</select>-->
+    <select id="allUser" parameterType="map" resultType="model.User">
+    select * from `user` where 1=1
+    <if test="id != null and id != '' "> and id like "%"#{id}"%"</if>
+    <if test="account != null and account != '' "> and account like "%"#{account}"%"</if>
+    <if test="auth != null and auth != '' "> and auth like "%"#{auth}"%"</if>
+</select>
+
+    <select id="UserCount" parameterType="string" resultType="int">
+    select count(1) from `user` where account = #{account}
+</select>
+    <update id="upUserMsg" parameterType="model.User" >
+    update `user` set auth = #{auth} where account = #{account}
+</update>
+    <update id="deleteUser" parameterType="int" >
+    delete from `user` where id = #{id}
+</update>
+
+    <select id="login" parameterType="model.User" resultType="int">
+    select count(1) from `user` where account = #{account} and password = #{password}
+    </select>
+
+    <select id="UserMsg" parameterType="model.User" resultType="model.User">
+    select * from `user` where account = #{account} and password = #{password}
+    </select>
+
+    <insert id="addUser" parameterType="model.User" >
+    insert into `user` values (null,#{account},#{password},#{auth})
+   </insert>
+</mapper>

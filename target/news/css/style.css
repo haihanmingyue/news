@@ -1,0 +1,186 @@
+body{
+    margin: 0;
+    background-color: #DDDEE3;
+}
+#sign{
+    border-bottom: darkgrey 1px solid;
+    margin-top: 30px;
+    width: 88%;
+}
+#sign a{
+    color: black;
+    text-decoration: none;
+}
+#table{
+    width: 85%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+td input{
+    height: 30px;
+    margin-left: 10px;
+}
+th{
+    background-color:#DEDEDE;
+}
+.footer{
+
+    width: 85%;
+    min-width:1200px ;
+    text-align: center;
+
+}
+.footer input[type=text]{
+    width:40px;
+    border: #DDDEE3 1px solid;
+}
+.footer input{
+    outline:none;
+}
+.footer button{
+    height: 28px;
+    font-size:10px;
+}
+.footer a{
+    cursor: pointer;
+    text-decoration: none;
+}
+#tableDiv{
+    min-width: 1200px;
+}
+
+
+#msg{
+    margin-top: 100px;
+
+    margin-left: 30%;
+}
+#msg input{
+    width: 300px;
+    margin-top: 50px;
+}
+
+#msg input[type=button]{
+    width: 80px;
+}
+#Auth option{
+    font-size: 16px;
+}
+#msg span{
+    position: relative;
+    left: 310px;
+    top: -30px;
+    color: red;
+}
+
+.inputDiv{
+    height: 30px;
+}
+
+
+#nav{
+    background-color: white;
+    height: 80px;
+    box-shadow: #0f0f0f 0 0 5px 0;
+    line-height: 80px;
+}
+
+#login{
+    position: absolute;
+    right: 75px;
+    top:25px
+}
+#account{
+    position: absolute;
+    right: 75px;
+    color: black;
+    text-decoration: none;
+}
+#account:hover{
+    color: darkslateblue;
+
+}
+#lgout{
+
+    position: absolute;
+    right: 10px;
+    top:25px
+}
+#logo{
+    position: fixed;
+    left: 30px;
+    background-color: #6BC095;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    top: 15px;
+}
+#name{
+    position: fixed;
+    left: 100px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+#cebian{
+    position: relative;
+    float: left;
+    background-color: white;
+    top: 20px;
+    width: 200px;
+    height: 100%;
+    border: #DDDEE3 1px solid;
+}
+
+span{
+    margin-left: 25px;
+}
+.CBDiv{
+    border-bottom:  #DDDEE3 solid 1px;
+    width: 100%;
+    line-height: 50px;
+    cursor: pointer;
+}
+.li-title:hover{
+    cursor: pointer;
+}
+
+.jiantou{
+    position: relative;
+    float: right;
+    right: 20px;
+}
+#nav a{
+    color: black;
+}
+#nav a:hover{
+    text-decoration:none;
+    cursor: pointer;
+    color: black;
+}
+
+.li:hover{
+    background-color: #DDDEE3;
+    cursor: pointer;
+}
+.li-name{
+    margin-left: 25px;
+}
+.li-menu{
+    background-color: #F7F7F7;
+}
+#index-home{
+    text-decoration: none;
+}
+
+#content{
+    position:fixed;
+    background-color: white;
+    height: 85%;
+    top: 100px;
+    margin-left: 205px;
+    border: #DDDEE3 1px solid;
+    min-width: 510px;
+    width: 100%;
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 为这个mapper指定一个唯一的namespace，它习惯上设置为：“包名+sql映射文件名”，这样可以保值名的唯一，一般来说，名字和Dao层的数据库方法的接口名一致。-->
+<mapper namespace="dao.NewsDao">
+
+    <!-- id：这个select语句的id，和接口内的方法名一致-->
+<select id="allNews" parameterType="map" resultType="model.News">
+        select * from `news` where 1=1
+        <if test="id != null and id != '' "> and id like "%"#{id}"%"</if>
+        <if test="title != null and title != '' "> and title like "%"#{title}"%"</if>
+        <if test="userId != null and userId != '' "> and userId like "%"#{userId}"%"</if>
+    <if test="type != null and type != '' "> and type like "%"#{type}"%"</if>
+    <if test="createDate != null and createDate != '' "> and createDate like "%"#{createDate}"%"</if>
+    </select>
+
+    <update id="upNewsMsg" parameterType="model.News" >
+    update `news` set `type` = #{type},title = #{title},content = #{content} where id = #{id}
+</update>
+    <update id="deleteNews" parameterType="int" >
+    delete from `news` where id = #{id}
+</update>
+
+<!--    <select id="NewsMsg" parameterType="model.News" resultType="model.News">-->
+<!--    select * from `user` where account = #{account} and password = #{password}-->
+<!--    </select>-->
+
+    <insert id="addNews" parameterType="model.News" >
+    insert into `news` values (null,#{title},#{content},#{userId},#{type},#{createDate})
+   </insert>
+</mapper>

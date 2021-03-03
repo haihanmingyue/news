@@ -1,6 +1,5 @@
 package Filter;
 
-import com.sun.org.apache.regexp.internal.RE;
 import model.User;
 
 import javax.servlet.*;
